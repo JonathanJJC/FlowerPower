@@ -1,0 +1,24 @@
+CREATE DATABASE FlowerPower;
+
+CREATE TABLE Klant(
+	Klantid INT NOT NULL AUTO_INCREMENT,
+	Voorletters VARCHAR(250) NOT NULL,
+	Tussenvoegsels VARCHAR(250),
+	Achternaam VARCHAR(250) NOT NULL,
+	Adres VARCHAR(250) NOT NULL,
+	Postcode VARCHAR(10) NOT NULL,
+	Woonplaats VARCHAR(250) NOT NULL,
+	Geboortedatum DATE NOT NULL,
+	Gebruiksnaam VARCHAR(250) NOT NULL,
+	Wachtwoord VARCHAR(12) NOT NULL,
+	PRIMARY KEY (Klantid),
+)
+
+CREATE TABLE Factuur(
+	Factuurid INT NOT NULL AUTO_INCREMENT,
+	Factuurdatum DATE NOT NULL,
+	Klantid INT NOT NULL AUTO_INCREMENT,
+	FOREIGN KEY (Klantid) REFERENCES Klant(Klantid)
+)
+
+
